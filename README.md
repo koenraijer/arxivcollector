@@ -50,6 +50,15 @@ The first argument after `arxivcollectory.py` is the search URL, the second argu
 python arxivcollector.py "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=stochastic+parrot&terms-0-field=title&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first" "Parrots"
 ```
 
+Special thanks
+------
+Fatima et al. served as the main inspiration for this code. To see their paper, go to: https://doi.org/10.1016/j.infsof.2023.107251. 
+
+Full reference:
+```
+Fatima, R., Yasin, A., Liu, L., Wang, J., & Afzal, W. (2023). Retrieving arXiv, SocArXiv, and SSRN metadata for initial review screening. Information and Software Technology, 161, 107251. https://doi.org/10.1016/j.infsof.2023.107251
+```
+
 API
 ------
 
