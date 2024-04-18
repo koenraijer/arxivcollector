@@ -1,17 +1,17 @@
-ArXiv Metadata Collector
+arXivCollector
 ======
 
-ArXiv Metadata Collector is a simple script that allows you to transform your arXiv searches into neatly formatted BibTex files for easy importation in most common scientific reference managers (like Zotero or EndNote). It does not require much prior programming knowledge. A particularly useful feature is the inclusion of DOIs and direct links to article PDFs in the resulting file. The references can also be saved as a csv file.
+**arXivCollector** allows you to export your arXiv searches as neatly formatted BibTex files for easy importation in most common scientific reference managers (like Zotero or EndNote). It does not require much prior programming knowledge. A particularly useful feature is the inclusion of DOIs and direct links to article PDFs in the resulting file. The references can also be saved as a csv file.
 
 Installation
 ------
 
-1. Have Python installed. You can download it from [here](https://www.python.org/downloads/).
+1. Have Python installed (download it from [here](https://www.python.org/downloads/)).
 2. Clone the repository by running the following command in a terminal:
 ```bash
 git clone https://github.com/koenraijer/arxivcollector.git
 ```
-1. Navigate to the cloned repository:
+3. Navigate to the cloned repository:
 ```bash
 cd path/to/arxivcollector
 ```
@@ -28,15 +28,24 @@ To obtain an arXiv search results URL for your search query, go to [https://arxi
 
 ### Step 2: use arXivCollector in one of two ways
 #### In Python
+Run the following Python code (e.g., in a script or from a Jupyter notebook). 
+
 ```python
 from arxiv import arXivCollector
 
+# Initiate a new instance of the arXivCollector class
 collector = arXivCollector()
+# Set the title of the exported file (optional)
 collector.set_title("Parrots")
+# Pass the search URL to the run method
 collector.run('https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=stochastic+parrot&terms-0-field=title&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first')
 ```
 
+After running this with your own search URL and title, a new file should appear in the parent directory of arXivCollector. 
+
 #### From the commandline
+The first argument after `arxivcollectory.py` is the search URL, the second argument is your title. 
+
 ```bash
 python arxivcollector.py "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=stochastic+parrot&terms-0-field=title&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first" "Parrots"
 ```
