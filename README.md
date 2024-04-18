@@ -6,27 +6,28 @@ ArXiv Metadata Collector is a simple script that allows you to transform your ar
 Installation
 ------
 
-1. Make sure to have Python installed. You can download it from [here](https://www.python.org/downloads/).
-2. Clone the repository. Open your terminal and run the following command:
+1. Have Python installed. You can download it from [here](https://www.python.org/downloads/).
+2. Clone the repository by running the following command in a terminal:
 ```bash
-git clone https://github.com/your_username/your_repository.git
+git clone https://github.com/koenraijer/arxivcollector.git
 ```
-3. Navigate into the cloned repository:
+1. Navigate to the cloned repository:
 ```bash
-cd path/to/your_repository
+cd path/to/arxivcollector
 ```
 
 Getting started
 ------
 
-You can use **arXivCollector** in two ways:
-- By importing the class
-- By using the script on the commandline. 
+**arXivCollector** can be used in two ways:
+- By importing the `arXivCollector()` class; 
+- By executing the `arxivcollectory.py` script from the command line. 
 
-### Obtaining the URL 
-To obtain the right URL for your search query, simply go to [https://arxiv.org/](https://arxiv.org/) or to the [advanced search page](https://arxiv.org/search/advanced) and construct your search query. Press the big blue button that says "Search", wait until you arrive at the results page, and copy the entire URL. 
+### Step 1: obtain an arXiv search results URL 
+To obtain an arXiv search results URL for your search query, go to [https://arxiv.org/](https://arxiv.org/) or to the [advanced search page](https://arxiv.org/search/advanced) and construct your search query. Press the big blue button that says "Search", wait until you arrive on the page that displays the search results. Now copy the entire URL as is, and you're done ✅. 
 
-### In Python
+### Step 2: use arXivCollector in one of two ways
+#### In Python
 ```python
 from arxiv import arXivCollector
 
@@ -35,7 +36,7 @@ collector.set_title("Parrots")
 collector.run('https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=stochastic+parrot&terms-0-field=title&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first')
 ```
 
-### From the commandline
+#### From the commandline
 ```bash
 python arxivcollector.py "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=stochastic+parrot&terms-0-field=title&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first" "Parrots"
 ```
