@@ -55,7 +55,7 @@ API
 
 ### Class: arXivCollector
 
-This class is used to scrape metadata from the arXiv website and save it in either BibTeX or CSV format.
+This class is used to collect metadata from the arXiv website and save it in either BibTeX or CSV format.
 
 #### `__init__(self, user_agent, num_abstracts, arxiv_doi_prefix, default_item_type, verbose, mode) -> None`
 
@@ -64,11 +64,11 @@ Initializes an instance of the ArXiv class.
 ##### Parameters:
 
 - `user_agent` (str): The User-Agent header to use when sending requests. Default is a common User-Agent string for a Chrome browser.
-- `num_abstracts` (int): The number of abstracts to scrape per page. Default is 50.
+- `num_abstracts` (int): The number of abstracts you want displayed per page (on the arXiv website). Default is 50.
 - `arxiv_doi_prefix` (str): The prefix for the DOI of arXiv papers. Default is "https://doi.org/10.48550".
 - `default_item_type` (str): The default item type for the BibTeX entries. Default is "ARTICLE".
 - `verbose` (bool): Whether to print verbose output. Default is False.
-- `mode` (str): The mode to use when saving the scraped data. Can be either "bibtex" or "csv". Default is "bibtex".
+- `mode` (str): The mode to use when saving the collected data. Can be either "bibtex" or "csv". Default is "bibtex".
 
 #### `set_title(self, title: str)`
 
@@ -80,8 +80,8 @@ Sets the title of the output file.
 
 #### `run(self, url)`
 
-Starts the scraping process for the specified URL.
+Starts the collection process for the specified URL.
 
 ##### Parameters:
 
-- `url` (str): The URL to start the scraping process for.
+- `url` (str): The URL to start the collection process for.
