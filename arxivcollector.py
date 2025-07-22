@@ -68,8 +68,8 @@ class ArXivCollector():
         for p in soup.select('p'):
             if p.getText(strip=True).startswith(keyword):
                 temp = p.getText(strip=True).split(';')
-                sub = temp[0].strip().removeprefix('Submitted')
-                ann = temp[-1].strip().removeprefix('originally announced')
+                sub = temp[0].strip()[len('Submitted'):]
+                ann = temp[-1].strip()[len('originally announced'):]
                 # Convert sub to a datetime object
                 sub = datetime.datetime.strptime(sub, "%d %B, %Y")
                 break
@@ -88,7 +88,11 @@ class ArXivCollector():
             temp_authors = li.select('p.authors>a')
             authors = ' AND '.join([', '.join(j.getText(strip=True).split()[::-1]) for j in temp_authors])
 
-            Abstract = self.extract_text(li,'span.abstract-full').removesuffix('△ Less')
+            abstract_text = self.extract_text(li, 'span.abstract-full')
+            if abstract_text:
+                Abstract = abstract_text[:-len('△ Less')]
+            else:
+                Abstract = ''
 
             extracted_text = self.extract_text(li,'p.comments > span:nth-of-type(2)')
             note = extracted_text if extracted_text else ""
