@@ -40,6 +40,9 @@ class ArXivCollector():
     def set_title(self, title: str):
         self.title = f"{title}"
 
+    def set_mode(self, mode: str):
+        self.mode = f"{mode}"
+
     def send_request(self, url, method="GET"):
         for attempt in range(MAX_RETRIES):
             try:
@@ -160,10 +163,12 @@ def main():
     parser = argparse.ArgumentParser(description='Retrieve arXiv metadata.')
     parser.add_argument('url', help='The URL to scrape.')
     parser.add_argument('title', help='The title for the output file.')
+    parser.add_argument('mode', help='The file type of the output file.')
     args = parser.parse_args()
 
     arxiv = ArXivCollector()
     arxiv.set_title(args.title)
+    arxiv.set_mode(args.mode)
     arxiv.run(args.url)
 
 if __name__ == '__main__':
