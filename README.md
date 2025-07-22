@@ -20,7 +20,7 @@ Getting started
 ------
 
 **arXivCollector** can be used in two ways:
-- By importing the `arXivCollector()` class; 
+- By importing the `ArXivCollector()` class; 
 - By executing the `arxivcollectory.py` script from the command line. 
 
 ### Step 1: obtain an arXiv search results URL 
@@ -31,10 +31,10 @@ To obtain an arXiv search results URL for your search query, go to [https://arxi
 Run the following Python code (e.g., in a script or from a Jupyter notebook). 
 
 ```python
-from arxiv import arXivCollector
+from arxivcollector import ArXivCollector
 
 # Initiate a new instance of the arXivCollector class
-collector = arXivCollector()
+collector = ArXivCollector()
 # Set the title of the exported file (optional)
 collector.set_title("Parrots")
 # Pass the search URL to the run method
@@ -62,7 +62,7 @@ Fatima, R., Yasin, A., Liu, L., Wang, J., & Afzal, W. (2023). Retrieving arXiv, 
 API
 ------
 
-### Class: arXivCollector
+### Class: ArXivCollector
 
 This class is used to collect metadata from the arXiv website and save it in either BibTeX or CSV format.
 

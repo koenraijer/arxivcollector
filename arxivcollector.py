@@ -162,7 +162,7 @@ def main():
     parser.add_argument('title', help='The title for the output file.')
     args = parser.parse_args()
 
-    arxiv = ArXiv()
+    arxiv = ArXivCollector()
     arxiv.set_title(args.title)
     arxiv.run(args.url)
 
