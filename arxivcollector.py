@@ -38,7 +38,7 @@ class ArXivCollector():
             raise ValueError("The mode parameter must be either 'bibtex' or 'csv'.")
 
     def set_title(self, title: str):
-        self.title = f"{self.title}_{title}"
+        self.title = f"{title}"
 
     def send_request(self, url, method="GET"):
         for attempt in range(MAX_RETRIES):
@@ -144,14 +144,14 @@ class ArXivCollector():
                 
                 # Write the BibDatabase to a BibTeX file
                 writer = BibTexWriter()
-                with open(f'Bibliography_ArXiv_{self.title}.bib', 'w') as bibfile:
+                with open(f'{self.title}.bib', 'w') as bibfile:
                     bibfile.write(writer.write(db))
             elif self.mode == 'csv':
                 # Convert the list of dictionaries to a DataFrame
                 df = pd.DataFrame(self.mainLIST)
                 
                 # Write the DataFrame to a CSV file
-                df.to_csv(f'Bibliography_ArXiv_{self.title}.csv', index=False)
+                df.to_csv(f'{self.title}.csv', index=False)
 
             page += 1
             if len(results) < self.num_abstracts: break
