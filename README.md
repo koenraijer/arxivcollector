@@ -1,3 +1,8 @@
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-360/)
+
 arXivCollector
 ======
 
@@ -20,23 +25,24 @@ Getting started
 ------
 
 **arXivCollector** can be used in two ways:
-- By importing the `arXivCollector()` class; 
+- By importing the `ArXivCollector()` class; 
 - By executing the `arxivcollectory.py` script from the command line. 
 
 ### Step 1: obtain an arXiv search results URL 
 To obtain an arXiv search results URL for your search query, go to [https://arxiv.org/](https://arxiv.org/) or to the [advanced search page](https://arxiv.org/search/advanced) and construct your search query. Press the big blue button that says "Search", wait until you arrive on the page that displays the search results. Now copy the entire URL as is, and you're done ✅. 
 
-### Step 2: use arXivCollector in one of two ways
+### Step 2: use ArXivCollector in one of two ways
 #### In Python
 Run the following Python code (e.g., in a script or from a Jupyter notebook). 
 
 ```python
-from arxiv import arXivCollector
+from arxivcollector import ArXivCollector
 
 # Initiate a new instance of the arXivCollector class
-collector = arXivCollector()
-# Set the title of the exported file (optional)
+collector = ArXivCollector()
+# Set the title and type of the exported file
 collector.set_title("Parrots")
+collector.set_mode("csv")
 # Pass the search URL to the run method
 collector.run('https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=stochastic+parrot&terms-0-field=title&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first')
 ```
@@ -44,10 +50,10 @@ collector.run('https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&
 After running this with your own search URL and title, a new file should appear in the parent directory of arXivCollector. 
 
 #### From the commandline
-The first argument after `arxivcollectory.py` is the search URL, the second argument is your title. 
+The first argument after `arxivcollectory.py` is the search URL, the second argument is your title, and the third argument is the type of the output file (csv or bibtex). 
 
 ```bash
-python arxivcollector.py "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=stochastic+parrot&terms-0-field=title&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first" "Parrots"
+python arxivcollector.py "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=stochastic+parrot&terms-0-field=title&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=all_dates&date-year=&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=50&order=-announced_date_first" "output" "csv"
 ```
 
 Special thanks
@@ -62,7 +68,7 @@ Fatima, R., Yasin, A., Liu, L., Wang, J., & Afzal, W. (2023). Retrieving arXiv, 
 API
 ------
 
-### Class: arXivCollector
+### Class: ArXivCollector
 
 This class is used to collect metadata from the arXiv website and save it in either BibTeX or CSV format.
 
@@ -83,9 +89,14 @@ Initializes an instance of the ArXiv class.
 
 Sets the title of the output file.
 
+#### `set_mode(self, mode: str)`
+
+Sets the type of the output file.
+
 ##### Parameters:
 
 - `title` (str): The title to set.
+- `mode` (str): The type of file to set.
 
 #### `run(self, url)`
 
