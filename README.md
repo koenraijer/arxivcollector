@@ -20,6 +20,16 @@ git clone https://github.com/koenraijer/arxivcollector.git
 ```bash
 cd path/to/arxivcollector
 ```
+4. Install requirements:
+```bash
+pip install -r requirements.txt
+```
+You probably want to use a virtual environment for this. If so, do the following instead:
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
 Getting started
 ------
