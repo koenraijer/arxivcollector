@@ -60,7 +60,7 @@ class ArXivCollector():
 
     def extract_text(self, soup: BeautifulSoup, selector):
         try:
-            text = soup.select_one(selector).getText(strip=True)
+            text = ' '.join(soup.select_one(selector).getText().split())
         except AttributeError:
             text = None
         return text
