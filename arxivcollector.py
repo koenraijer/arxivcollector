@@ -93,7 +93,7 @@ class ArXivCollector():
 
             abstract_text = self.extract_text(li, 'span.abstract-full')
             if abstract_text:
-                Abstract = abstract_text[:-len('△ Less')]
+                Abstract = abstract_text[:-len('△ Less')].replace('{', r'\{').replace('}', r'\}')
             else:
                 Abstract = ''
 
