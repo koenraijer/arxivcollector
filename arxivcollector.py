@@ -60,7 +60,7 @@ class ArXivCollector():
 
     def extract_text(self, soup: BeautifulSoup, selector):
         try:
-            text = soup.select_one(selector).getText(strip=True)
+            text = ' '.join(soup.select_one(selector).getText().split())
         except AttributeError:
             text = None
         return text
@@ -93,7 +93,7 @@ class ArXivCollector():
 
             abstract_text = self.extract_text(li, 'span.abstract-full')
             if abstract_text:
-                Abstract = abstract_text[:-len('△ Less')]
+                Abstract = abstract_text[:-len('△ Less')].replace('{', r'\{').replace('}', r'\}')
             else:
                 Abstract = ''
 
