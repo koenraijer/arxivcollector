@@ -6,7 +6,7 @@
 arXivCollector
 ======
 
-**arXivCollector** allows you to export your arXiv searches as neatly formatted BibTex files for easy importation in most common scientific reference managers (like Zotero or EndNote). It does not require much prior programming knowledge. A particularly useful feature is the inclusion of DOIs and direct links to article PDFs in the resulting file. The references can also be saved as a csv file.
+**arXivCollector** allows you to export your arXiv searches as neatly formatted BibTex files for easy importation in most common scientific reference managers (like Zotero or EndNote), by scraping the web. It does not require prior programming knowledge to use. A particularly useful feature is the inclusion of DOIs and direct links to article PDFs in the resulting file. The references can also be saved as a csv file.
 
 Installation
 ------
